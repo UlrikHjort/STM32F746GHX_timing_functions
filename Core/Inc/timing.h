@@ -29,7 +29,7 @@ unsigned int getCycles();
     start_cnt();                                                           \
     func;                                                                  \
     stop_cnt();                                                            \
-    printf(#func ": %.2fs\n\r",(double)getCycles()/HAL_RCC_GetHCLKFreq()); \
+    printf(#func ": %.2fs\r\n",(double)getCycles()/HAL_RCC_GetHCLKFreq()); \
 }
 
 
@@ -40,7 +40,7 @@ unsigned int getCycles();
     start_cnt();                                                           \
     func;                                                                  \
     stop_cnt();                                                            \
-    printf(#func ": %.2fms\n\r",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000.0); \
+    printf(#func ": %.2fms\r\n",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000.0); \
 }
 
 
@@ -51,7 +51,7 @@ unsigned int getCycles();
     start_cnt();                                                           \
     func;                                                                  \
     stop_cnt();                                                            \
-    printf(#func ": %.2fus\n\r",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000000.0); \
+    printf(#func ": %.2fus\r\n",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000000.0); \
 }
 
 
@@ -62,7 +62,7 @@ unsigned int getCycles();
     start_cnt();                                                           \
     func;                                                                  \
     stop_cnt();                                                            \
-    printf(#func ": %.2fns\n\r",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000000000.0); \
+    printf(#func ": %.2fns\r\n",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000000000.0); \
 }
 
 #define TIME_MEASURE_CYCLES(func)                                          \
@@ -72,7 +72,7 @@ unsigned int getCycles();
     start_cnt();                                                           \
     func;                                                                  \
     stop_cnt();                                                            \
-    printf(#func ": %u cycles\n\r",getCycles());                           \
+    printf(#func ": %u cycles\r\n",getCycles());                           \
 }
 
 
