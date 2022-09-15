@@ -65,5 +65,15 @@ unsigned int getCycles();
     printf(#func ": %.2fns\n\r",(double)getCycles()/HAL_RCC_GetHCLKFreq() * 1000000000.0); \
 }
 
+#define TIME_MEASURE_CYCLES(func)                                          \
+{                                                                          \
+    dwt_access_enable(1);                                                  \
+    reset_cnt();                                                           \
+    start_cnt();                                                           \
+    func;                                                                  \
+    stop_cnt();                                                            \
+    printf(#func ": %u cycles\n\r",getCycles());                           \
+}
+
 
 #endif /* INC_TIMING_H_ */
