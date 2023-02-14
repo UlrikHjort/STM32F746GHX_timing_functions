@@ -16,10 +16,23 @@
 #define DWT_LAR_KEY 0xC5ACCE55
 
 void dwt_access_enable(unsigned ena);
-void reset_cnt();
-void start_cnt();
-void stop_cnt();
-unsigned int getCycles();
+
+#define reset_cnt() { \
+    CoreDebug->DEMCR |= 0x01000000; \
+    DWT->CYCCNT = 0; \
+    DWT->CTRL = 0; \
+}
+
+#define start_cnt() { \
+DWT->CTRL |= 0x00000001; \
+}
+
+#define stop_cnt() { \
+ DWT->CTRL &= 0xFFFFFFFE; \
+ }
+
+#define getCycles() (DWT->CYCCNT)
+#define dwt_access_enable()
 
 
 #define TIME_MEASURE_S(func)                                               \
