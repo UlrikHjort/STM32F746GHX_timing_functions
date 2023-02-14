@@ -15,7 +15,7 @@
 #endif
 #define DWT_LAR_KEY 0xC5ACCE55
 
-void dwt_access_enable(unsigned ena);
+void dwt_access_enable_func(unsigned ena);
 
 #define reset_cnt() { \
     CoreDebug->DEMCR |= 0x01000000; \
